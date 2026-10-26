@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123d32">
+<title>Warga Baladewa Raya</title>
+<style>
+:root{--green:#123d32;--green2:#1e6652;--mint:#e8f4ed;--gold:#e6b85c;--ink:#1d2a25;--muted:#6b7972;--line:#e4ebe6;--bg:#f5f8f6;--white:#fff;--red:#b43b3b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.app{max-width:1100px;margin:auto;min-height:100vh}
+header{background:linear-gradient(130deg,var(--green),#1b5b49);color:white;padding:22px 18px 26px;border-radius:0 0 26px 26px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:15px;background:#ffffff1f;display:grid;place-items:center;font-size:24px;border:1px solid #ffffff2b}.brand h1{font-size:18px;line-height:1.15;margin:0}.brand p{font-size:12px;margin:5px 0 0;color:#d0e4d9}.badge{font-size:11px;background:#ffffff1c;border:1px solid #ffffff2c;border-radius:99px;padding:7px 10px;white-space:nowrap}
+.welcome{margin-top:25px}.welcome small{color:#d0e4d9}.welcome h2{font-size:25px;margin:6px 0}.welcome p{margin:0;color:#e3eee8;font-size:13px}
+main{padding:18px 14px 95px}.section-head{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 12px}.section-head h3{font-size:16px;margin:0}.section-head span{font-size:12px;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{background:white;border:1px solid var(--line);border-radius:17px;padding:15px;box-shadow:0 3px 12px #163b2810}.metric-icon{width:34px;height:34px;border-radius:11px;background:var(--mint);display:grid;place-items:center;font-size:17px}.metric-label{font-size:12px;color:var(--muted);margin-top:12px}.metric-value{font-size:21px;font-weight:750;margin-top:4px;letter-spacing:-.5px}.metric-note{font-size:11px;color:var(--muted);margin-top:5px}
+.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:16px;box-shadow:0 3px 12px #163b2808}.quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.quick button{background:white;border:1px solid var(--line);border-radius:14px;padding:13px 5px;color:var(--ink);font-size:12px}.quick b{display:block;font-size:23px;margin-bottom:6px;font-weight:500}
+.row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0;padding-bottom:0}.row:first-child{padding-top:0}.row h4{font-size:13px;margin:0 0 4px}.row p{font-size:12px;color:var(--muted);margin:0;line-height:1.45}.status{font-size:10px;font-weight:700;border-radius:99px;padding:6px 9px;white-space:nowrap;background:#fff3d6;color:#85601b}.status.ok{background:#e1f5e8;color:#246a43}.status.blue{background:#e5efff;color:#315c9c}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(1100px,100%);background:#ffffffef;backdrop-filter:blur(14px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:8px 6px max(8px,env(safe-area-inset-bottom));z-index:5}.nav button{border:0;background:transparent;color:#718078;font-size:10px;padding:5px 1px}.nav button span{display:block;font-size:20px;margin-bottom:3px}.nav button.active{color:var(--green);font-weight:750}
+.page{display:none}.page.active{display:block}.btn{border:0;background:var(--green2);color:white;border-radius:11px;padding:10px 13px;font-weight:650;font-size:12px}.btn.secondary{background:var(--mint);color:var(--green)}.btn.small{padding:7px 10px}.form{display:grid;gap:10px}.form label{font-size:12px;font-weight:650;color:#425249;display:grid;gap:6px}.form input,.form select,.form textarea{border:1px solid #d9e3dc;border-radius:10px;padding:11px;background:#fff;min-width:0;color:var(--ink)}.form textarea{min-height:85px;resize:vertical}.hint{font-size:11px;color:var(--muted);line-height:1.5}.table-wrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:12px;min-width:420px}th,td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:650;background:#f8faf8}.pill{font-size:10px;border-radius:99px;padding:5px 8px;background:#e1f5e8;color:#246a43}.pill.no{background:#fff0dc;color:#925d16}
+.chatbox{height:300px;overflow:auto;background:#f7faf8;border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:10px}.msg{max-width:88%;background:white;border:1px solid var(--line);padding:9px 11px;border-radius:12px;align-self:flex-start;font-size:12px}.msg.mine{align-self:flex-end;background:#e4f4e9}.msg small{display:block;color:var(--muted);font-size:10px;margin-bottom:4px}.chat-compose{display:flex;gap:8px;margin-top:9px}.chat-compose input{flex:1;min-width:0;border:1px solid #d9e3dc;border-radius:11px;padding:10px}.notice{border-left:3px solid var(--gold);padding:9px 12px;background:#fffaf0;border-radius:0 10px 10px 0;font-size:12px;line-height:1.5;color:#6f5628}
+footer{text-align:center;color:var(--muted);font-size:10px;padding:22px 0 8px}
+@media(min-width:700px){header{padding:28px 30px 32px;margin:0 12px}.welcome h2{font-size:30px}main{padding:22px 28px 100px}.cards{grid-template-columns:repeat(4,minmax(0,1fr))}.layout-two{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.nav{border-radius:18px 18px 0 0}.metric-value{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+ <div class="top">
+  <div class="brand"><div class="logo">🏘️</div><div><h1>Warga Baladewa Raya</h1><p>Kas • Informasi • Kegiatan Warga</p></div></div>
+  <div class="badge">VERSI DEMO</div>
+ </div>
+ <div class="welcome"><small>Selamat datang di lingkungan kita</small><h2>Rukun, terbuka, bersama.</h2><p>Semua informasi warga dalam satu tempat.</p></div>
+</header>
+<main>
+ <section class="page active" id="home">
+  <div class="section-head"><h3>Ringkasan kas</h3><span>Contoh tampilan</span></div>
+  <div class="cards">
+   <div class="card"><div class="metric-icon">💰</div><div class="metric-label">Saldo kas</div><div class="metric-value">Rp1.250.000</div><div class="metric-note">Saldo contoh</div></div>
+   <div class="card"><div class="metric-icon">📥</div><div class="metric-label">Pemasukan bulan ini</div><div class="metric-value">Rp300.000</div><div class="metric-note">30 rumah × Rp10.000</div></div>
+   <div class="card"><div class="metric-icon">📤</div><div class="metric-label">Pengeluaran bulan ini</div><div class="metric-value">Rp150.000</div><div class="metric-note">Contoh transaksi</div></div>
+   <div class="card"><div class="metric-icon">🏠</div><div class="metric-label">Status rumah saya</div><div class="metric-value" style="font-size:18px">Belum dihubungkan</div><div class="metric-note">Login akan dibuat pada tahap berikutnya</div></div>
+  </div>
+  <div class="layout-two">
+   <div><div class="section-head"><h3>Menu cepat</h3><span>Pilih menu</span></div>
+    <div class="quick">
+     <button onclick="showPage('cash')"><b>💵</b>Kas</button><button onclick="showPage('activities')"><b>📅</b>Kegiatan</button><button onclick="showPage('reports')"><b>📝</b>Buat laporan</button>
+    </div>
+    <div class="section-head"><h3>Informasi terbaru</h3><span>Contoh</span></div>
+    <div class="panel">
+     <div class="row"><div><h4>Kerja bakti lingkungan</h4><p>Minggu pagi • Berkumpul di ujung gang</p></div><span class="status blue">Agenda</span></div>
+     <div class="row"><div><h4>Selamat datang di aplikasi warga</h4><p>Tempat berbagi informasi dan menjaga lingkungan bersama.</p></div><span class="status ok">Info</span></div>
+    </div>
+   </div>
+   <div><div class="section-head"><h3>Catatan penting</h3></div><div class="panel"><div class="notice">Ini masih versi demo. Angka, status, dan pesan yang tampil adalah data contoh, bukan data kas asli.</div><div class="row" style="margin-top:12px"><div><h4>Transparansi kas</h4><p>Pengurus akan mencatat transaksi agar laporan dapat diperiksa warga.</p></div></div><div class="row"><div><h4>Laporan warga</h4><p>Warga dapat mengirim usulan atau melaporkan masalah lingkungan.</p></div></div></div></div>
+  </div>
+ </section>
+ <section class="page" id="cash">
+  <div class="section-head"><h3>Kas gang</h3><span>Data demo</span></div>
+  <div class="panel"><div class="notice">Transaksi di halaman ini hanya contoh dan belum tersimpan ke database.</div><div class="section-head"><h3 style="margin-top:10px">Ringkasan</h3></div><div class="cards"><div><div class="metric-label">Saldo awal</div><b>Rp1.100.000</b></div><div><div class="metric-label">Pemasukan</div><b>Rp300.000</b></div><div><div class="metric-label">Pengeluaran</div><b>Rp150.000</b></div><div><div class="metric-label">Saldo akhir</div><b>Rp1.250.000</b></div></div></div>
+  <div class="section-head"><h3>Riwayat transaksi contoh</h3></div>
+  <div class="panel table-wrap"><table><thead><tr><th>Tanggal</th><th>Keterangan</th><th>Masuk</th><th>Keluar</th></tr></thead><tbody><tr><td>01 Okt</td><td>Iuran warga</td><td>Rp300.000</td><td>—</td></tr><tr><td>05 Okt</td><td>Pembelian perlengkapan</td><td>—</td><td>Rp150.000</td></tr></tbody></table></div>
+ </section>
+ <section class="page" id="dues">
+  <div class="section-head"><h3>Iuran bulanan</h3><span>Data contoh</span></div>
+  <div class="panel"><div class="notice">Status iuran tiap rumah akan tampil setelah login dan database diaktifkan. Daftar di bawah hanya contoh.</div><div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>Rumah</th><th>Bulan</th><th>Status</th></tr></thead><tbody><tr><td>01</td><td>Oktober 2026</td><td><span class="pill">Lunas</span></td></tr><tr><td>02</td><td>Oktober 2026</td><td><span class="pill no">Belum bayar</span></td></tr><tr><td>03</td><td>Oktober 2026</td><td><span class="pill">Lunas</span></td></tr></tbody></table></div></div>
+ </section>
+ <section class="page" id="activities">
+  <div class="section-head"><h3>Rencana kegiatan</h3><span>Contoh agenda</span></div>
+  <div class="panel"><div class="row"><div><h4>Kerja bakti lingkungan</h4><p>Minggu, pukul 07.00 • Berkumpul di ujung gang</p><p style="margin-top:5px">Agenda bersih-bersih area bersama.</p></div><span class="status blue">Direncanakan</span></div><div class="row"><div><h4>Rapat warga</h4><p>Tanggal dan lokasi akan diumumkan pengurus.</p></div><span class="status">Pembahasan</span></div><p class="hint">Agenda nyata nantinya dapat dikelola oleh pengurus setelah sistem online terhubung.</p></div>
+ </section>
+ <section class="page" id="community">
+  <div class="section-head"><h3>Informasi & laporan warga</h3><span>Pratinjau</span></div>
+  <div class="panel"><form class="form" id="reportForm"><label>Jenis kiriman<select id="reportType"><option>Laporan fasilitas rusak</option><option>Kebersihan lingkungan</option><option>Keamanan</option><option>Usulan warga</option><option>Informasi umum</option></select></label><label>Judul<input id="reportTitle" required placeholder="Contoh: Lampu jalan mati"></label><label>Detail<textarea id="reportBody" required placeholder="Jelaskan informasi atau laporan..."></textarea></label><button class="btn" type="submit">Pratinjau kiriman</button><p class="hint">Demo ini tidak mengirim laporan ke pengurus atau menyimpan data secara online.</p></form></div>
+  <div class="section-head"><h3>Kiriman contoh</h3></div><div class="panel" id="reportList"><div class="row"><div><h4>Lampu jalan mati</h4><p>Contoh laporan • Menunggu tindak lanjut</p></div><span class="status">Menunggu</span></div></div>
+ </section>
+ <section class="page" id="chat">
+  <div class="section-head"><h3>Live chat warga</h3><span>Simulasi lokal</span></div>
+  <div class="panel"><div class="notice">Chat ini hanya simulasi di browser. Pesan belum terkirim ke warga lain. Fitur chat online akan diaktifkan setelah database terhubung.</div><div class="chatbox" id="chatbox" style="margin-top:12px"><div class="msg"><small>Rumah 05 • contoh</small>Selamat malam, apakah minggu ini ada kerja bakti?</div><div class="msg mine"><small>Pengurus • contoh</small>Agenda sementara hari Minggu pagi. Informasi final menyusul.</div></div><form class="chat-compose" id="chatForm"><input id="chatInput" placeholder="Tulis pesan demo..." maxlength="300" required><button class="btn" type="submit">Kirim</button></form></div>
+ </section>
+ <section class="page" id="profile">
+  <div class="section-head"><h3>Akun warga</h3></div><div class="panel"><div class="metric-icon">👤</div><h3 style="margin-bottom:5px">Belum login</h3><p class="hint">Login dengan nomor rumah dan PIN akan dibuat setelah sistem autentikasi dan database disiapkan. Jangan masukkan PIN asli di versi demo ini.</p><button class="btn secondary" onclick="alert('Login belum aktif. Ini baru prototipe tampilan.')">Pratinjau login</button></div>
+ </section>
+ <footer>Warga Baladewa Raya • Prototipe awal • Data di halaman ini hanya contoh</footer>
+</main>
+<nav class="nav">
+ <button class="active" data-page="home" onclick="showPage('home')"><span>🏠</span>Beranda</button>
+ <button data-page="cash" onclick="showPage('cash')"><span>💰</span>Kas</button>
+ <button data-page="dues" onclick="showPage('dues')"><span>🧾</span>Iuran</button>
+ <button data-page="community" onclick="showPage('community')"><span>📢</span>Warga</button>
+ <button data-page="chat" onclick="showPage('chat')"><span>💬</span>Chat</button>
+</nav>
+</div>
+<script>
+function showPage(id){
+ document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('reportForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const title=document.getElementById('reportTitle').value.trim();
+ const body=document.getElementById('reportBody').value.trim();
+ const type=document.getElementById('reportType').value;
+ if(!title||!body)return;
+ const row=document.createElement('div');row.className='row';
+ const content=document.createElement('div');
+ const h=document.createElement('h4');h.textContent=title;
+ const p=document.createElement('p');p.textContent=type+' • Pratinjau lokal: '+body;
+ content.append(h,p);const status=document.createElement('span');status.className='status';status.textContent='Demo';
+ row.append(content,status);document.getElementById('reportList').prepend(row);
+ e.target.reset();alert('Pratinjau laporan ditambahkan di perangkat ini saja. Belum dikirim ke pengurus.');
+});
+document.getElementById('chatForm').addEventListener('submit',e=>{
+ e.preventDefault();const input=document.getElementById('chatInput');const val=input.value.trim();if(!val)return;
+ const msg=document.createElement('div');msg.className='msg mine';
+ const small=document.createElement('small');small.textContent='Anda • demo';
+ msg.append(small,document.createTextNode(val));document.getElementById('chatbox').append(msg);
+ input.value='';document.getElementById('chatbox').scrollTop=document.getElementById('chatbox').scrollHeight;
+});
+</script>
+</body>
+</html>
